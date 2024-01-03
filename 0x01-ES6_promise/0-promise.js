@@ -1,15 +1,16 @@
-function MyAPI() {
-  // Constructor logic if needed
+function getResponseFromAPI() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const apiResponse = "Sample API response";
+      const isAPISuccessful = true;
+
+      if (isAPISuccessful) {
+        resolve(apiResponse);
+      } else {
+        reject(new Error("API call failed"));
+      }
+    }, 1000);
+  });
 }
 
-MyAPI.prototype.getResponseFromAPI = function () {
-  return new Promise((resolve) => {
-    // Simulating an asynchronous API call with a setTimeout
-    setTimeout(() => {
-      const responseData = { data: "API response data" };
-      resolve(responseData);
-    }, 1000); // Simulating a delay of 1 second
-  });
-};
-
-export default MyAPI;
+export default getResponseFromAPI;
