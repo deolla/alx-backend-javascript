@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing TypeScript Code</title>
+  <script src="dist/bundle.js"></script>
+</head>
+<body>
+  <script>
+    const subject1 = { credits: 3, brand: "MajorCredits" };
+    const subject2 = { credits: 4, brand: "MajorCredits" };
+
+    const majorResult = sumMajorCredits(subject1, subject2);
+    console.log(majorResult);
+
+    const subject3 = { credits: 2, brand: "MinorCredits" };
+    const subject4 = { credits: 5, brand: "MinorCredits" };
+
+    const minorResult = sumMinorCredits(subject3, subject4);
+    console.log(minorResult);
+  </script>
+</body>
+</html>
