@@ -1,3 +1,17 @@
+# Directories
 node_modules
+dist
+coverage
+
+
+# Files
+*.log
+*.log.* 
+*.log-*
+build/
+*.tsbuildinfo
+*.tsbuildinfo.*
+
+# dependencies
 package-lock.json
 yarn.lock
