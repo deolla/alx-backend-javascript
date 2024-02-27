@@ -4,13 +4,13 @@ process.stdout.write("Welcome to Holberton School, What is your name?\n");
 
 if (process.stdin.isTTY) {
   process.stdin.on("data", function (data) {
-    const output = data.toString().trim();
+    const output = data.toString();
     process.stdout.write("Your name is: " + output);
     process.exit();
   });
 } else {
   process.stdin.on("data", function (data) {
-    const input = data.toString().trim();
+    const input = data.toString();
     process.stdout.write("Your name is:", input);
     process.exit();
   });
