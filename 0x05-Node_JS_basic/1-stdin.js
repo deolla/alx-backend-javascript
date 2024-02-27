@@ -1,20 +1,13 @@
-// A program that will be executed through a command line interface.
+process.stdout.write("Welcome to Holberton School, what is your name?\n");
 
-process.stdout.write("Welcome to Holberton School, What is your name?\n");
+process.stdin.on("data", () => {
+  const data = process.stdin.read();
 
-if (process.stdin.isTTY) {
-  process.stdin.on("data", function (data) {
-    const output = data.toString();
-    process.stdout.write("Your name is: " + output);
-    process.exit();
-  });
-} else {
-  process.stdin.on("data", function (data) {
-    const input = data.toString();
-    process.stdout.write("Your name is:", input);
-    process.exit();
-  });
-  process.stdin.on("end", function () {
-    process.stdout.write("This important software is now closing \n");
-  });
-}
+  if (data) {
+    process.stdout.write(`Your name is: ${data}`);
+  }
+});
+
+process.stdin.on("exit", () => {
+  process.stdout.write("This important software is now closing\n");
+});
