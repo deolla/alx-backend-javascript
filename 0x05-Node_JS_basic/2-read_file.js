@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 // Function to count students and log information
 function countStudents(fileName) {
@@ -9,10 +9,10 @@ function countStudents(fileName) {
 
   try {
     // Read content of the file synchronously
-    const fileContent = fs.readFileSync(fileName, "utf-8");
+    const fileContent = fs.readFileSync(fileName, 'utf-8');
 
     // Split the content into lines
-    const lines = fileContent.toString().split("\n");
+    const lines = fileContent.toString().split('\n');
 
     // Iterate through each line
     for (let i = 0; i < lines.length; i += 1) {
@@ -22,7 +22,7 @@ function countStudents(fileName) {
         totalStudents += 1;
 
         // Split the line into fields
-        const fields = lines[i].toString().split(",");
+        const fields = lines[i].toString().split(',');
 
         // Update studentsByField object
         if (Object.prototype.hasOwnProperty.call(studentsByField, fields[3])) {
@@ -48,17 +48,17 @@ function countStudents(fileName) {
 
     // Iterate through fieldCounts and log information for each field
     for (const [key, value] of Object.entries(fieldCounts)) {
-      if (key !== "field") {
+      if (key !== 'field') {
         console.log(
           `Number of students in ${key}: ${value}. List: ${studentsByField[
             key
-          ].join(", ")}`
+          ].join(', '),}`
         );
       }
     }
   } catch (error) {
     // Throw an error if there is an issue loading the database
-    throw Error("Cannot load the database");
+    throw Error('Cannot load the database');
   }
 }
 
