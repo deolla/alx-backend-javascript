@@ -1,7 +1,7 @@
-const http = require("http");
-const { readFile } = require("fs");
+const http = require('http');
+const { readFile } = require('fs');
 
-const host = "127.0.0.1";
+const host = '127.0.0.1';
 const port = 1245;
 
 function countStudents(fileName) {
@@ -13,12 +13,12 @@ function countStudents(fileName) {
       if (err) {
         reject(err);
       } else {
-        let output = "";
-        const lines = data.toString().split("\n");
+        let output = '';
+        const lines = data.toString().split('\n');
         for (let i = 0; i < lines.length; i += 1) {
           if (lines[i]) {
             len += 1;
-            const fields = lines[i].toString().split(",");
+            const fields = lines[i].toString().split(',');
             if (Object.prototype.hasOwnProperty.call(stu, fields[3])) {
               stu[fields[3]].push(fields[0]);
             } else {
@@ -36,7 +36,7 @@ function countStudents(fileName) {
         for (const [key, value] of Object.entries(fld)) {
           if (key !== "field") {
             output += `Number of students in ${key}: ${value}. `;
-            output += `List: ${stu[key].join(", ")}\n`;
+            output += `List: ${stu[key].join(', ')}\n`;
           }
         }
         resolve(output);
@@ -47,13 +47,13 @@ function countStudents(fileName) {
 
 const app = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
+  res.setHeader('Content-Type', 'text/plain');
   if (req.url === "/") {
-    res.write("Hello Holberton School!");
+    res.write('Hello Holberton School!');
     res.end();
   }
-  if (req.url === "/students") {
-    res.write("This is the list of our students\n");
+  if (req.url === '/students') {
+    res.write('This is the list of our students\n');
     countStudents(process.argv[2].toString())
       .then((output) => {
         const outStr = output.slice(0, -1);
@@ -61,7 +61,7 @@ const app = http.createServer((req, res) => {
       })
       .catch(() => {
         res.statusCode = 404;
-        res.end("Cannot load the database");
+        res.end('Cannot load the database');
       });
   }
 });
