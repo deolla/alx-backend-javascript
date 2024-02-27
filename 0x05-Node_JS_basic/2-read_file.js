@@ -52,7 +52,7 @@ function countStudents(fileName) {
         console.log(
           `Number of students in ${key}: ${value}. List: ${studentsByField[
             key
-          ].join(', '),}`
+          ].join(', ')}`,
         );
       }
     }
