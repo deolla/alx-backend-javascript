@@ -34,7 +34,7 @@ function countStudents(fileName) {
         const l = len - 1;
         output += `Number of students: ${l}\n`;
         for (const [key, value] of Object.entries(fld)) {
-          if (key !== "field") {
+          if (key !== 'field') {
             output += `Number of students in ${key}: ${value}. `;
             output += `List: ${stu[key].join(', ')}\n`;
           }
@@ -48,7 +48,7 @@ function countStudents(fileName) {
 const app = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  if (req.url === "/") {
+  if (req.url === '/') {
     res.write('Hello Holberton School!');
     res.end();
   }
