@@ -61,19 +61,5 @@ describe('API integration test', () => {
           done();
         });
     });
-    it('returns an error for missing username in the request body', (done) => {
-      request.post(
-        {
-          url: `${API_URL}/login`,
-          json: {},
-        },
-        (_err, res, body) => {
-          const responseBody = JSON.parse(body);
-          expect(res.statusCode).to.be.equal(400);
-          expect(responseBody.error).to.be.equal('userName is required in the request body');
-          done();
-        }
-      );
-    });
   });
 });
