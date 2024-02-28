@@ -1,14 +1,17 @@
-const calculateNumber = (type, a, b) => {
+function calcul(type, a, b) {
+  const roundedA = Math.round(a);
+  const roundedB = Math.round(b);
+
   if (type === 'SUM') {
-    return Math.round(a) + Math.round(b);
+    return roundedA + roundedB;
   } else if (type === 'SUBTRACT') {
-    return Math.round(a) - Math.round(b);
-  } else if (type === 'DiVIDE') {
-    if (Math.round(b) === 0) {
+    return roundedA - roundedB;
+  } else if (type === 'DIVIDE') {
+    if (roundedB === 0) {
       return 'Error';
     }
-    return Math.round(a) / Math.round(b);
+    return roundedA / roundedB;
   }
-};
+}
 
-module.exports = calculateNumber;
+module.exports = calcul;
