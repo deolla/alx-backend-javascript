@@ -14,12 +14,12 @@ describe('calculateNumber function', () => {
   });
 
   it('should correctly divide two numbers', () => {
-    const result = calculateNumber('DiVIDE', 8, 2);
+    const result = calculateNumber('DIVIDE', 8, 2);
     expect(result).to.equal(4);
   });
 
   it('should handle division by zero and return "Error"', () => {
-    const result = calculateNumber('DiVIDE', 6, 0);
+    const result = calculateNumber('DIVIDE', 6, 0);
     expect(result).to.equal('Error');
   });
 });
